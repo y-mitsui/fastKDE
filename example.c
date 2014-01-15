@@ -3,6 +3,8 @@
 #include <math.h>
 #include <time.h>
 #include "kde.h"
+#include "fdrand48.h"
+
 int min(int a,int b){
 	return (a < b) ? a : b;
 }
@@ -40,8 +42,8 @@ double nrand()
         if (sw==0){
                 sw=1;
                 do {
-                        r1=2.0*drand48()-1.0;
-                        r2=2.0*drand48()-1.0;
+                        r1=2.0*fdrand48()-1.0;
+                        r2=2.0*fdrand48()-1.0;
                         s=r1*r1+r2*r2;
                 } while (s>1.0 || s==0.0);
                         s=sqrt(-2.0*log(s)/s);
@@ -53,10 +55,11 @@ double nrand()
         }
 }
 
+
 int main(void){
 	double *source,*target;
-	int sizeSource=10000;
-	int sizeTarget=5000;
+	int sizeSource=1000;
+	int sizeTarget=100;
 	int i,dimention,j;
 	double bandwidth=0.96;
 	clock_t time,orijinal;
@@ -81,10 +84,10 @@ int main(void){
 	orijinal=clock() - time;
 	
 	time=clock();
-	kdeModelData *model=kdeFgtModel(source,sizeSource,dimention,bandwidth,-1);
+	kdeModelData *model=kdeFgtModel(source,sizeSource,dimention,bandwidth,10);
 	double *value=kdeFgtPredict(target,sizeTarget,model);
 
-	printf("direct time:%.5f optimized time:%.5f\n",(double)orijinal/(double)CLOCKS_PER_SEC ,(double)(clock() - time) / (double)CLOCKS_PER_SEC);
+	printf("direct time:%.5fsec optimized time:%.5fsec\n",(double)orijinal/(double)CLOCKS_PER_SEC ,(double)(clock() - time) / (double)CLOCKS_PER_SEC);
 
 	int countUp=(20 > sizeTarget) ? 1 : sizeTarget/20;
 	for(i=0;i<sizeTarget;i+=countUp){
