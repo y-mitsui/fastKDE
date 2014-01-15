@@ -6,7 +6,7 @@ This library will significantly improve performance about KDE.But if you require
 ##Install  
 (You require gmake and gcc.)  
 1.If you execute with intel CPU and 32bit Linux, Code which was optimized by SSE2 is available by inputting this following.  
-> exprot CFLAGS=-DENABLE_ASM  
+> export CFLAGS=-DENABLE_ASM  
 (in case of bash)  
   
 2.Input command this following,  
