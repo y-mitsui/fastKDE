@@ -1,7 +1,7 @@
 fastKDE
 =======
 
-C library of Kernel density estimation which was optimized by the original FGT and use Gauss function .  
+C library of kernel density estimation which was optimized by the original FGT and use Gauss function .  
 This library will significantly improve performance about KDE.But if you require strict calculation, You should not use this library. Because there is tiny error at the fast Gauss transform.  
 ##Install  
 (You require gmake and gcc.)  
