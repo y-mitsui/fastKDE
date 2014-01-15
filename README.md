@@ -9,7 +9,7 @@ This library will significantly improve performance about KDE.But if you require
 > export CFLAGS=-DENABLE_ASM  
 (in case of bash)  
   
-2.Input command this following,  
+2.Input this following,  
 > make  
   
 3.Add "fgt.o","kde.o","kde.h" to your project.  
