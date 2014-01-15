@@ -12,7 +12,7 @@ This library will significantly improve performance about KDE.But if you require
 2. Input command this following,  
 > make  
   
-2. Add "fgt.o","kde.o","kde.h" to your project.  
+3. Add "fgt.o","kde.o","kde.h" to your project.  
   
 ##Usage  
 Read kde.h and example.c.  
