@@ -8,6 +8,7 @@ num:Number of sampling data
 dimention: Dimention of x
 bandwidth: Bandwidth of KDE.
 K: Count of caluclation.If this is large,caluclation is restrict.But it is waste time for caluclation.
+   If K is nagative, K=sqrt(num).
 result:model data for kdeFgtPredict().
 */
 kdeModelData *kdeFgtModel(double *samplingData,int num,int dimention,double bandwidth,int K);
